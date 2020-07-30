@@ -1,0 +1,58 @@
+{
+	"name": "vscode-shnort-notebook",
+	"publisher": "pmuellr",
+	"displayName": "Shnort Notebook",
+	"description": "An extension for using Shnort in VS Code notebooks",
+	"version": "0.0.1",
+	"preview": true,
+	"enableProposedApi": true,
+	"engines": {
+		"vscode": "^1.46.0"
+	},
+	"repository": {
+		"url": "https://github.com/pmuellr/vscode-shnort-notebook"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"notebookProvider": [
+			{
+				"viewType": "shnort-notebook",
+				"displayName": "Shnort Notebook",
+				"priority": "option",
+				"selector": [
+					{
+						"filenamePattern": "*.shnort.notebook"
+					}
+				]
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint src --ext ts",
+		"deploy": "npx vsce publish --noVerify",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile && yarn run lint",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.46.0",
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^7.0.2",
+		"@types/node": "^13.11.0",
+		"eslint": "^6.8.0",
+		"@typescript-eslint/parser": "^2.30.0",
+		"@typescript-eslint/eslint-plugin": "^2.30.0",
+		"glob": "^7.1.6",
+		"mocha": "^7.1.2",
+		"typescript": "^3.8.3",
+		"vscode-test": "^1.3.0"
+	}
+}
